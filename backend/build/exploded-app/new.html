@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Dispositivo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Nuevo Conocido</h1>
+<form id="detalle" action="javascript:;">
+    <a href="index.html" accesskey="C">Cancelar</a>
+    <button type="submit" id="guardar" accesskey="G">Guardar</button>
+    <img id="indicador" src="img/ajax_loader.gif" alt="...">
+    <output id="error"></output>
+    <p>
+        <input type="text" id="nombre" accesskey="N" placeholder="Nombre">
+        <output id="errorNombre"></output>
+    </p>
+    <p>
+        <input type="tel" id="telefono" accesskey="T" placeholder="Tel&eacute;fono">
+        <output id="errorTelefono"></output>
+    </p>
+</form>
+<footer>Copyright &copy; 2016
+</footer>
+<script data-main="js/PresenterNuevoConocido.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
+</body>
+</html>

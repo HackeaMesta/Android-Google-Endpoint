@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Mis Lugares</string>
+    <string name="título_conocido">Conocido</string>
+    <string name="título_nuevo_conocido">Nuevo Conocido</string>
+    <string name="action_agregar">Agregar...</string>
+    <string name="action_actualizar">Actualizar</string>
+    <string name="action_cancelar">Cancelar</string>
+    <string name="action_guardar">Guardar</string>
+    <string name="action_eliminar">Eliminar</string>
+    <string name="nombre">Nombre</string>
+    <string name="telefono">Teléfono</string>
+    <string name="id">ID</string>
+    <string name="mostrar_ubicacion">Mostrar ubicación</string>
+    <string name="navigation_drawer_open">Abrir Menu</string>
+    <string name="navigation_drawer_close">Cerrar</string>
+    <string name="web_text">http://</string>
+    <string name="domain_text">www.web.com</string>
+    <string name="desc_text">Descripcion</string>
+    <string name="map_cancelar">Cancelar</string>
+    <string name="create_ubicacion">Crear Ubicacion</string>
+</resources>

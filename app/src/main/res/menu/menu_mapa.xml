@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ActivityMaestroDetalleFragment">
+
+    <item android:id="@+id/mapa_guardar_ubicacion"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_menu_send"
+        android:title="@string/action_guardar"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/mapa_cancelar_ubicacion"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_menu_manage"
+        android:title="@string/map_cancelar"
+        app:showAsAction="never"/>
+</menu>

@@ -1,0 +1,223 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/QVjFE67BfjaOFIZYqumiBukEw3w\"",
+ "discoveryVersion": "v1",
+ "id": "proxyEndpointConocidos:v1",
+ "name": "proxyEndpointConocidos",
+ "version": "v1",
+ "description": "This is an API",
+ "ownerDomain": "data-base-1298.appspot.com",
+ "ownerName": "data-base-1298.appspot.com",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://myApplicationId.appspot.com/_ah/api/proxyEndpointConocidos/v1/",
+ "basePath": "/_ah/api/proxyEndpointConocidos/v1/",
+ "rootUrl": "https://myApplicationId.appspot.com/_ah/api/",
+ "servicePath": "proxyEndpointConocidos/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "Conocido": {
+   "id": "Conocido",
+   "type": "object",
+   "properties": {
+    "descripcion": {
+     "type": "string"
+    },
+    "foto": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "latitude": {
+     "type": "string"
+    },
+    "longitude": {
+     "type": "string"
+    },
+    "nombre": {
+     "type": "string"
+    },
+    "rating": {
+     "type": "number",
+     "format": "float"
+    },
+    "telefono": {
+     "type": "string"
+    },
+    "web": {
+     "type": "string"
+    },
+    "wifi": {
+     "type": "boolean"
+    }
+   }
+  },
+  "ConocidoCollection": {
+   "id": "ConocidoCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Conocido"
+     }
+    }
+   }
+  }
+ },
+ "methods": {
+  "get": {
+   "id": "proxyEndpointConocidos.get",
+   "path": "conocido/{id}",
+   "httpMethod": "GET",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "response": {
+    "$ref": "Conocido"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "insert": {
+   "id": "proxyEndpointConocidos.insert",
+   "path": "void",
+   "httpMethod": "POST",
+   "request": {
+    "$ref": "Conocido",
+    "parameterName": "resource"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "list": {
+   "id": "proxyEndpointConocidos.list",
+   "path": "conocido",
+   "httpMethod": "GET",
+   "response": {
+    "$ref": "ConocidoCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "patch": {
+   "id": "proxyEndpointConocidos.patch",
+   "path": "void",
+   "httpMethod": "PATCH",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "request": {
+    "$ref": "Conocido"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "remove": {
+   "id": "proxyEndpointConocidos.remove",
+   "path": "remove/{id}",
+   "httpMethod": "DELETE",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "update": {
+   "id": "proxyEndpointConocidos.update",
+   "path": "void",
+   "httpMethod": "PUT",
+   "request": {
+    "$ref": "Conocido",
+    "parameterName": "resource"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ }
+}

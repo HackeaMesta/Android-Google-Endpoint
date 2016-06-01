@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.appspot.data_base_1298.database" >
+
+    <permission
+        android:name="com.google.maps.android.utils.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.google.maps.android.utils.permission.MAPS_RECEIVE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <application
+        android:name=".Tools.App"
+        android:allowBackup="true"
+        android:icon="@drawable/lugar"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="API_KEY_VALUE"/>
+
+        <activity android:name=".Activitys.ActivityConocidos">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activitys.ActivityConocido">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Activitys.ActivityConocidos"/>
+        </activity>
+        <activity android:name=".Activitys.ActivityNuevoConocido">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Activitys.ActivityConocidos"/>
+        </activity>
+        <activity android:name=".Activitys.ActivityMap">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activitys.ActivityMap"/>
+        </activity>
+        <activity android:name=".Activitys.ActivityNuevoMap">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activitys.ActivityNuevoMap"/>
+        </activity>
+    </application>
+
+</manifest>

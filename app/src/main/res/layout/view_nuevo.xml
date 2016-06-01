@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/coordinatorLayout"
+    tools:context=".Activitys.ActivityNuevoConocido">
+
+    <com.appspot.data_base_1298.database.Tools.Indicador
+        android:id="@+id/indicador"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/til_lugar">
+
+                <EditText
+                    android:id="@+id/new_nombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nombre"
+                    android:inputType="textCapWords|textPersonName"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/til_lugar"
+                android:id="@+id/til_telefono">
+                <EditText
+                    android:id="@+id/new_telefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/telefono"
+                    android:inputType="phone"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/til_telefono"
+                android:id="@+id/til_web">
+                <EditText
+                    android:id="@+id/new_web"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/domain_text"
+                    android:inputType="textWebEditText"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/til_web"
+                android:id="@+id/til_descripcion">
+                <EditText
+                    android:id="@+id/new_descripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/desc_text"
+                    android:inputType="textLongMessage"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/til_descripcion"
+                android:id="@+id/til_foto">
+                <EditText
+                    android:id="@+id/new_foto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="http://image.com/image.png"
+                    android:inputType="textWebEditText"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rating_new"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/til_foto"
+                android:numStars="5"
+                android:stepSize="0.5"
+                android:rating="4.0"
+                android:clickable="true"
+                android:contextClickable="true"
+                android:focusableInTouchMode="true"
+                android:focusable="true" />
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/rating_new"
+                android:layout_below="@+id/til_foto"
+                android:text="Wifi "
+                android:id="@+id/wifi_new"
+                style="@style/Base.Widget.AppCompat.CompoundButton.Switch" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/rating_new"
+                android:id="@+id/latitude_new_map_text"
+                android:text="Latitude"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/rating_new"
+                android:layout_toRightOf="@+id/latitude_new_map_text"
+                android:id="@+id/latitude_new_map"
+                android:text="19.4289712"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_below="@+id/rating_new"
+                android:id="@+id/longitude_new_map_text"
+                android:layout_toRightOf="@+id/latitude_new_map"
+                android:text="Longitude"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/rating_new"
+                android:layout_toRightOf="@+id/longitude_new_map_text"
+                android:id="@+id/longitude_new_map"
+                android:text="19.4289712"/>
+
+            <Button
+                style="@android:style/Widget.Material.Light.MediaRouteButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/latitude_new_map"
+                android:text="@string/create_ubicacion"
+                android:id="@+id/btn_new_map" />
+        </RelativeLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>
