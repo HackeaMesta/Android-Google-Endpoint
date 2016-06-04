@@ -29,6 +29,7 @@ import java.io.IOException;
 import static com.appspot.data_base_1298.database.Tools.App.getApp;
 import static com.appspot.data_base_1298.database.Tools.Constantes.ACTIVITY_MAP;
 import static com.appspot.data_base_1298.database.Tools.Constantes.BUSCANDO_MODEL;
+import static com.appspot.data_base_1298.database.Tools.Constantes.ACTIVITY_AGREGAR;
 import static com.appspot.data_base_1298.database.Tools.Constantes.ELIMINANDO;
 import static com.appspot.data_base_1298.database.Tools.Constantes.FALTA_EL_EXTRA_ID;
 import static com.appspot.data_base_1298.database.Tools.Constantes.MODIFICANDO;
@@ -56,6 +57,11 @@ public class FragmentConocido extends Fragment
     String map_foto;
     Double map_latitude;
     Double map_longitude;
+    String map_id;
+    String map_telefono;
+    String map_descripcion;
+    String map_web;
+    Boolean map_wifi;
     Button btn;
     Float map_rating;
 
@@ -115,9 +121,14 @@ public class FragmentConocido extends Fragment
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_editar:
+                clicEnActualizar();
+                return true;
+
             case R.id.action_eliminar:
                 clicEnEliminar();
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -149,8 +160,7 @@ public class FragmentConocido extends Fragment
     }
 
     @Override
-    public void onLoadFinished(Loader<Respuesta<Conocido>> loader,
-                               Respuesta<Conocido> respuesta) {
+    public void onLoadFinished(Loader<Respuesta<Conocido>> loader, Respuesta<Conocido> respuesta) {
         setIndicadorActivo(indicador, false);
         final Exception exception = respuesta.getException();
         if (exception != null) {
@@ -167,6 +177,21 @@ public class FragmentConocido extends Fragment
 
     public final void setIdViewModel(@Nullable String idViewModel) {
         this.idViewModel = idViewModel;
+    }
+
+    private void clicEnActualizar() {
+        final Intent intent = new Intent(getActivity(), ACTIVITY_AGREGAR);
+        intent.putExtra("foto", this.map_foto);
+        intent.putExtra("latitude", this.map_latitude);
+        intent.putExtra("longitude", this.map_longitude);
+        intent.putExtra("name", this.map_title);
+        intent.putExtra("rating", this.map_rating);
+        intent.putExtra("id", this.map_id);
+        intent.putExtra("telefono", this.map_telefono);
+        intent.putExtra("descripcion", this.map_descripcion);
+        intent.putExtra("web", this.map_web);
+        intent.putExtra("wifi", this.map_wifi);
+        startActivity(intent);
     }
 
     private void clicEnGuardar() {
@@ -201,12 +226,17 @@ public class FragmentConocido extends Fragment
         this.map_longitude = Double.parseDouble(model.getLongitude());
         this.map_foto = model.getFoto();
         this.map_rating = model.getRating();
+        this.map_id = model.getId();
+        this.map_telefono = model.getTelefono();
+        this.map_descripcion = model.getDescripcion();
+        this.map_web = model.getWeb();
+        this.map_wifi = model.getWifi();
 
         setTextOnWidget(getView(), R.id.nombre, model.getNombre());
         setTextOnWidget(getView(), R.id.telefono, model.getTelefono());
 
         String web = model.getWeb();
-        if (!web.substring(0, 6).equals("http://") || !web.substring(0, 7).equals("https://")) {
+        if (!web.substring(0, 7).equals("http://") && !web.substring(0, 8).equals("https://")) {
             web = "http://" + web;
         }
 

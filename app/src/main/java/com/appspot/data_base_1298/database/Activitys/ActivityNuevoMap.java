@@ -18,13 +18,21 @@ import com.google.android.gms.maps.model.MarkerOptions;
  * Created by rk521 on 30/05/16.
  */
 public class ActivityNuevoMap extends AppCompatActivity implements OnMapReadyCallback {
-    public static Double latitude;
-    public static Double longitude;
+    public static Double latitude = 19.4289712;
+    public static Double longitude = -99.1372517;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_map);
+
+        if (this.latitude.toString().isEmpty()) {
+            this.latitude = 19.4289712;
+        }
+        if (this.longitude.toString().isEmpty()) {
+            this.longitude = -99.1372517;
+        }
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
@@ -46,7 +54,7 @@ public class ActivityNuevoMap extends AppCompatActivity implements OnMapReadyCal
             }
         });
 
-        LatLng place = new LatLng(19.4289712, -99.1372517);
+        LatLng place = new LatLng(this.latitude, this.longitude);
 
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(place, 13));
     }

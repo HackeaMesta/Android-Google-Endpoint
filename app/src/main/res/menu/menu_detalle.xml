@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ActivityMaestroDetalleFragment">
 
+    <item android:id="@+id/action_editar"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_menu_manage"
+        android:title="@string/action_actualizar"
+        app:showAsAction="never"/>
+
     <item android:id="@+id/action_eliminar"
         android:orderInCategory="100"
         android:icon="@drawable/ic_menu_manage"

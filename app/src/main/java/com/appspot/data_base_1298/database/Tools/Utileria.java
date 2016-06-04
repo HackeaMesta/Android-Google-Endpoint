@@ -94,6 +94,15 @@ public final class Utileria {
         }
     }
 
+    public static void setTextOnEditText(@Nullable View view, @IdRes int idTextView, @NonNull String s) {
+        if (view == null) {
+            throw new NullPointerException(VIEW_NULA);
+        } else {
+            final TextView lblSalida = (TextView) busca(view, idTextView);
+            lblSalida.setText(texto(s));
+        }
+    }
+
     public static void muestraTexto(@Nullable View view, @IdRes int idTextView, @NonNull String s) {
         if (view == null) {
             throw new NullPointerException(VIEW_NULA);
@@ -117,7 +126,15 @@ public final class Utileria {
             throw new NullPointerException(VIEW_NULA);
         } else {
             final TextView lblSalida = (TextView) busca(view, idTextView);
-            lblSalida.setText(Html.fromHtml("<a href='"+texto(s)+"'>"+texto(s)+"</a>"));
+            if (s.length() > 15) {
+                if (s.substring(0, 7).equals("http://")) {
+                    lblSalida.setText(Html.fromHtml("<a href='"+texto(s)+"'>"+texto(s.substring(7, s.length()))+"</a>"));
+                } else {
+                    lblSalida.setText(Html.fromHtml("<a href='"+texto(s)+"'>"+texto(s.substring(8, s.length()))+"</a>"));
+                }
+            } else {
+                lblSalida.setText(Html.fromHtml("<a href='" + texto(s) + "'>" + texto(s) + "</a>"));
+            }
             lblSalida.setMovementMethod(LinkMovementMethod.getInstance());
         }
     }
