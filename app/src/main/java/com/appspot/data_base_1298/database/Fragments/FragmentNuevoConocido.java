@@ -33,10 +33,10 @@ import static com.appspot.data_base_1298.database.Tools.Constantes.AGREGANDO;
 import static com.appspot.data_base_1298.database.Tools.Constantes.MODIFICANDO;
 import static com.appspot.data_base_1298.database.Tools.Utileria.busca;
 import static com.appspot.data_base_1298.database.Tools.Utileria.getRating;
-import static com.appspot.data_base_1298.database.Tools.Utileria.getTextFromTextInputLayout;
 import static com.appspot.data_base_1298.database.Tools.Utileria.getWifiFromSwitch;
 import static com.appspot.data_base_1298.database.Tools.Utileria.muestraTexto;
 import static com.appspot.data_base_1298.database.Tools.Utileria.procesaError;
+import static com.appspot.data_base_1298.database.Tools.Utileria.recuperaTexto;
 import static com.appspot.data_base_1298.database.Tools.Utileria.setIndicadorActivo;
 import static com.appspot.data_base_1298.database.Tools.Utileria.setRating;
 import static com.appspot.data_base_1298.database.Tools.Utileria.setSwitch;
@@ -191,12 +191,12 @@ public class FragmentNuevoConocido extends Fragment {
         muestraMensajeError("");
         final Conocido viewModel = new Conocido();
         viewModel.setId(ActivityNuevoConocido.id);
-        viewModel.setNombre(getTextFromTextInputLayout(getView(), R.id.til_lugar));
-        viewModel.setTelefono(getTextFromTextInputLayout(getView(), R.id.til_telefono));
-        viewModel.setDescripcion(getTextFromTextInputLayout(getView(), R.id.til_descripcion));
-        viewModel.setFoto(getTextFromTextInputLayout(getView(), R.id.til_foto));
+        viewModel.setNombre(recuperaTexto(getView(), R.id.new_nombre));
+        viewModel.setTelefono(recuperaTexto(getView(), R.id.new_telefono));
+        viewModel.setDescripcion(recuperaTexto(getView(), R.id.new_descripcion));
+        viewModel.setFoto(recuperaTexto(getView(), R.id.new_foto));
         viewModel.setRating(getRating(getView(), R.id.rating_new));
-        viewModel.setWeb(getTextFromTextInputLayout(getView(), R.id.til_web));
+        viewModel.setWeb(recuperaTexto(getView(), R.id.new_web));
         viewModel.setWifi(getWifiFromSwitch(getView(), R.id.wifi_new));
 
         String lat = ActivityNuevoMap.latitude.toString();
@@ -217,12 +217,12 @@ public class FragmentNuevoConocido extends Fragment {
     private Conocido creaViewModel() {
         muestraMensajeError("");
         final Conocido viewModel = new Conocido();
-        viewModel.setNombre(getTextFromTextInputLayout(getView(), R.id.til_lugar));
-        viewModel.setTelefono(getTextFromTextInputLayout(getView(), R.id.til_telefono));
-        viewModel.setDescripcion(getTextFromTextInputLayout(getView(), R.id.til_descripcion));
-        viewModel.setFoto(getTextFromTextInputLayout(getView(), R.id.til_foto));
+        viewModel.setNombre(recuperaTexto(getView(), R.id.new_nombre));
+        viewModel.setTelefono(recuperaTexto(getView(), R.id.new_telefono));
+        viewModel.setDescripcion(recuperaTexto(getView(), R.id.new_descripcion));
+        viewModel.setFoto(recuperaTexto(getView(), R.id.new_foto));
         viewModel.setRating(getRating(getView(), R.id.rating_new));
-        viewModel.setWeb(getTextFromTextInputLayout(getView(), R.id.til_web));
+        viewModel.setWeb(recuperaTexto(getView(), R.id.new_web));
         viewModel.setWifi(getWifiFromSwitch(getView(), R.id.wifi_new));
 
         String lat = ActivityNuevoMap.latitude.toString();

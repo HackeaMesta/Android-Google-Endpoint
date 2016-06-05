@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coordinatorLayout"
     tools:context=".Activitys.ActivityNuevoConocido">
 
@@ -28,10 +28,15 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
 
-            <android.support.design.widget.TextInputLayout
+            <com.github.florent37.materialtextfield.MaterialTextField
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/til_lugar">
+                app:mtf_cardCollapsedHeight="4dp"
+                app:mtf_animationDuration="1000"
+                app:mtf_labelColor="@android:color/holo_red_dark"
+                app:mtf_openKeyboardOnFocus="true"
+                app:mtf_image="@drawable/ic_menu_send"
+                android:id="@+id/container_nombre">
 
                 <EditText
                     android:id="@+id/new_nombre"
@@ -39,66 +44,86 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/nombre"
                     android:inputType="textCapWords|textPersonName"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.github.florent37.materialtextfield.MaterialTextField>
 
-            <android.support.design.widget.TextInputLayout
+            <com.github.florent37.materialtextfield.MaterialTextField
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/til_lugar"
-                android:id="@+id/til_telefono">
+                app:mtf_cardCollapsedHeight="4dp"
+                app:mtf_animationDuration="1000"
+                app:mtf_labelColor="@android:color/holo_red_dark"
+                app:mtf_openKeyboardOnFocus="true"
+                app:mtf_image="@drawable/ic_menu_send"
+                android:id="@+id/container_phone"
+                android:layout_below="@+id/container_nombre" >
                 <EditText
                     android:id="@+id/new_telefono"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/telefono"
                     android:inputType="phone"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.github.florent37.materialtextfield.MaterialTextField>
 
-            <android.support.design.widget.TextInputLayout
+            <com.github.florent37.materialtextfield.MaterialTextField
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/til_telefono"
-                android:id="@+id/til_web">
+                app:mtf_cardCollapsedHeight="4dp"
+                app:mtf_animationDuration="1000"
+                app:mtf_labelColor="@android:color/holo_red_dark"
+                app:mtf_openKeyboardOnFocus="true"
+                app:mtf_image="@drawable/ic_menu_send"
+                android:id="@+id/container_web"
+                android:layout_below="@+id/container_phone" >
                 <EditText
                     android:id="@+id/new_web"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/domain_text"
                     android:inputType="textWebEditText"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.github.florent37.materialtextfield.MaterialTextField>
 
-            <android.support.design.widget.TextInputLayout
+            <com.github.florent37.materialtextfield.MaterialTextField
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/til_web"
-                android:id="@+id/til_descripcion">
+                app:mtf_cardCollapsedHeight="4dp"
+                app:mtf_animationDuration="1000"
+                app:mtf_labelColor="@android:color/holo_red_dark"
+                app:mtf_openKeyboardOnFocus="true"
+                app:mtf_image="@drawable/ic_menu_send"
+                android:id="@+id/container_descripcion"
+                android:layout_below="@+id/container_web" >
                 <EditText
                     android:id="@+id/new_descripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/desc_text"
                     android:inputType="textLongMessage"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.github.florent37.materialtextfield.MaterialTextField>
 
-            <android.support.design.widget.TextInputLayout
+            <com.github.florent37.materialtextfield.MaterialTextField
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/til_descripcion"
-                android:id="@+id/til_foto">
-                <EditText
-                    android:id="@+id/new_foto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="http://image.com/image.png"
-                    android:inputType="textWebEditText"/>
-            </android.support.design.widget.TextInputLayout>
+                app:mtf_cardCollapsedHeight="4dp"
+                app:mtf_animationDuration="1000"
+                app:mtf_labelColor="@android:color/holo_red_dark"
+                app:mtf_openKeyboardOnFocus="true"
+                app:mtf_image="@drawable/ic_menu_send"
+                android:id="@+id/container_image"
+                android:layout_below="@+id/container_descripcion" >
+                    <EditText
+                        android:id="@+id/new_foto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="http://image.com/image.png"
+                        android:inputType="textWebEditText"/>
+            </com.github.florent37.materialtextfield.MaterialTextField>
 
             <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rating_new"
                 android:layout_marginTop="10dp"
-                android:layout_below="@+id/til_foto"
+                android:layout_below="@+id/container_image"
                 android:numStars="5"
                 android:stepSize="0.5"
                 android:rating="4.0"
@@ -113,7 +138,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/rating_new"
-                android:layout_below="@+id/til_foto"
+                android:layout_below="@+id/container_image"
                 android:text="Wifi "
                 android:id="@+id/wifi_new"
                 style="@style/Base.Widget.AppCompat.CompoundButton.Switch" />
@@ -125,6 +150,7 @@
                 android:layout_below="@+id/rating_new"
                 android:id="@+id/latitude_new_map_text"
                 android:text="Latitude"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -144,6 +170,7 @@
                 android:id="@+id/longitude_new_map_text"
                 android:layout_toRightOf="@+id/latitude_new_map"
                 android:text="Longitude"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
