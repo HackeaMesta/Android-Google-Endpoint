@@ -33,9 +33,10 @@
                 android:layout_height="wrap_content"
                 app:mtf_cardCollapsedHeight="4dp"
                 app:mtf_animationDuration="1000"
-                app:mtf_labelColor="@android:color/holo_red_dark"
+                app:mtf_labelColor="@android:color/holo_blue_light"
                 app:mtf_openKeyboardOnFocus="true"
                 app:mtf_image="@drawable/ic_menu_send"
+                android:background="#F2F2F2"
                 android:id="@+id/container_nombre">
 
                 <EditText
@@ -51,10 +52,11 @@
                 android:layout_height="wrap_content"
                 app:mtf_cardCollapsedHeight="4dp"
                 app:mtf_animationDuration="1000"
-                app:mtf_labelColor="@android:color/holo_red_dark"
+                app:mtf_labelColor="@android:color/holo_blue_light"
                 app:mtf_openKeyboardOnFocus="true"
                 app:mtf_image="@drawable/ic_menu_send"
                 android:id="@+id/container_phone"
+                android:background="#F2F2F2"
                 android:layout_below="@+id/container_nombre" >
                 <EditText
                     android:id="@+id/new_telefono"
@@ -69,10 +71,11 @@
                 android:layout_height="wrap_content"
                 app:mtf_cardCollapsedHeight="4dp"
                 app:mtf_animationDuration="1000"
-                app:mtf_labelColor="@android:color/holo_red_dark"
+                app:mtf_labelColor="@android:color/holo_blue_light"
                 app:mtf_openKeyboardOnFocus="true"
                 app:mtf_image="@drawable/ic_menu_send"
                 android:id="@+id/container_web"
+                android:background="#F2F2F2"
                 android:layout_below="@+id/container_phone" >
                 <EditText
                     android:id="@+id/new_web"
@@ -87,10 +90,11 @@
                 android:layout_height="wrap_content"
                 app:mtf_cardCollapsedHeight="4dp"
                 app:mtf_animationDuration="1000"
-                app:mtf_labelColor="@android:color/holo_red_dark"
+                app:mtf_labelColor="@android:color/holo_blue_light"
                 app:mtf_openKeyboardOnFocus="true"
                 app:mtf_image="@drawable/ic_menu_send"
                 android:id="@+id/container_descripcion"
+                android:background="#F2F2F2"
                 android:layout_below="@+id/container_web" >
                 <EditText
                     android:id="@+id/new_descripcion"
@@ -105,16 +109,17 @@
                 android:layout_height="wrap_content"
                 app:mtf_cardCollapsedHeight="4dp"
                 app:mtf_animationDuration="1000"
-                app:mtf_labelColor="@android:color/holo_red_dark"
+                app:mtf_labelColor="@android:color/holo_blue_light"
                 app:mtf_openKeyboardOnFocus="true"
                 app:mtf_image="@drawable/ic_menu_send"
                 android:id="@+id/container_image"
+                android:background="#F2F2F2"
                 android:layout_below="@+id/container_descripcion" >
                     <EditText
                         android:id="@+id/new_foto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="http://image.com/image.png"
+                        android:hint="Imagen (url)"
                         android:inputType="textWebEditText"/>
             </com.github.florent37.materialtextfield.MaterialTextField>
 
