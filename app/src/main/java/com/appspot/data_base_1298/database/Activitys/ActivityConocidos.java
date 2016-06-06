@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.appspot.data_base_1298.database.Fragments.FragmentConocidos;
 import com.appspot.data_base_1298.database.R;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 /**
  * Created by rk521 on 1/05/16.
@@ -13,6 +15,8 @@ import com.appspot.data_base_1298.database.R;
 public class ActivityConocidos extends AppCompatActivity {
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         setContentView(R.layout.view_frame);
 
         final FragmentManager fm = getSupportFragmentManager();

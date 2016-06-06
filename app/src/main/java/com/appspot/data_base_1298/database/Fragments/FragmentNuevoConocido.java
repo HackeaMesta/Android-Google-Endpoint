@@ -4,6 +4,7 @@ package com.appspot.data_base_1298.database.Fragments;
  * Created by rk521 on 1/05/16.
  */
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.appspot.data_base_1298.database.Activitys.ActivityNuevoConocido;
 import com.appspot.data_base_1298.database.Activitys.ActivityNuevoMap;
@@ -47,6 +49,7 @@ public class FragmentNuevoConocido extends Fragment {
     private static final String TAG = FragmentNuevoConocido.class.getName();
     private String mensaje;
     private boolean terminado;
+    private Context ctx;
     Button btn;
 
     @Nullable
@@ -55,6 +58,7 @@ public class FragmentNuevoConocido extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        this.ctx = container.getContext();
         return inflater.inflate(R.layout.view_nuevo, container, false);
     }
 
@@ -126,28 +130,32 @@ public class FragmentNuevoConocido extends Fragment {
 
     private void clicEnActualizar() {
         final Conocido viewModel = modelUpdate();
-        setIndicadorActivo(indicador, true);
-        final App app = getApp(getActivity());
-        final AsyncTask<Conocido, Void, Exception> task =
-                new AsyncTask<Conocido, Void, Exception>() {
-                    @Override
-                    protected Exception doInBackground(Conocido... params) {
-                        try {
-                            final ProxyEndpointConocidos.Update update =
-                                    app.getProxyEndpointConocidos().update(params[0]);
-                            update.execute();
-                            return null;
-                        } catch (IOException e) {
-                            return e;
+        if (checkData(viewModel)) {
+            setIndicadorActivo(indicador, true);
+            final App app = getApp(getActivity());
+            final AsyncTask<Conocido, Void, Exception> task =
+                    new AsyncTask<Conocido, Void, Exception>() {
+                        @Override
+                        protected Exception doInBackground(Conocido... params) {
+                            try {
+                                final ProxyEndpointConocidos.Update update =
+                                        app.getProxyEndpointConocidos().update(params[0]);
+                                update.execute();
+                                return null;
+                            } catch (IOException e) {
+                                return e;
+                            }
                         }
-                    }
 
-                    @Override
-                    protected void onPostExecute(Exception e) {
-                        opExec(MODIFICANDO, e);
-                    }
-                };
-        task.execute(viewModel);
+                        @Override
+                        protected void onPostExecute(Exception e) {
+                            opExec(MODIFICANDO, e);
+                        }
+                    };
+            task.execute(viewModel);
+        } else {
+            Toast.makeText(ctx, "Ingresa un valor valido", Toast.LENGTH_LONG).show();
+        }
     }
 
     private void opExec(String contexto, Exception e) {
@@ -240,26 +248,55 @@ public class FragmentNuevoConocido extends Fragment {
         return viewModel;
     }
 
+
+    private boolean checkData(Conocido model) {
+        boolean status = true;
+        if (model.getNombre().isEmpty()) {
+            status = false;
+        }
+        if (model.getFoto().isEmpty()) {
+            status = false;
+        }
+        if (model.getDescripcion().isEmpty()) {
+            status = false;
+        }
+        if (model.getTelefono().isEmpty()) {
+            status = false;
+        }
+        if (model.getWeb().isEmpty()) {
+            status = false;
+        }
+        return status;
+    }
+
     private void clicEnGuardar() {
         final Conocido viewModel = creaViewModel();
-        setIndicadorActivo(indicador, true);
-        final App app = getApp(getActivity());
-        final AsyncTask<Conocido, Void, Exception> task =
-                new AsyncTask<Conocido, Void, Exception>() {
-                    @Override protected Exception doInBackground(Conocido... params) {
-                        try {
-                            final ProxyEndpointConocidos.Insert insert = app.getProxyEndpointConocidos().insert(params[0]);
-                            insert.execute();
-                            return null;
-                        } catch (IOException e) {
-                            return e;
+
+        if (checkData(viewModel)) {
+            setIndicadorActivo(indicador, true);
+            final App app = getApp(getActivity());
+            final AsyncTask<Conocido, Void, Exception> task =
+                    new AsyncTask<Conocido, Void, Exception>() {
+                        @Override
+                        protected Exception doInBackground(Conocido... params) {
+                            try {
+                                final ProxyEndpointConocidos.Insert insert = app.getProxyEndpointConocidos().insert(params[0]);
+                                insert.execute();
+                                return null;
+                            } catch (IOException e) {
+                                return e;
+                            }
                         }
-                    }
-                    @Override protected void onPostExecute(Exception e) {
-                        operaciónRealizada(e);
-                    }
-                };
-        task.execute(viewModel);
+
+                        @Override
+                        protected void onPostExecute(Exception e) {
+                            operaciónRealizada(e);
+                        }
+                    };
+            task.execute(viewModel);
+        } else {
+            Toast.makeText(ctx, "Ingresa un valor valido", Toast.LENGTH_LONG).show();
+        }
     }
 
     private void operaciónRealizada(Exception e) {

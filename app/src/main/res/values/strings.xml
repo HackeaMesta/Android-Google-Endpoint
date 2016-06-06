@@ -18,4 +18,5 @@
     <string name="desc_text">Descripcion</string>
     <string name="map_cancelar">Cancelar</string>
     <string name="create_ubicacion">Crear Ubicacion</string>
+    <string name="facebook_app_id">1718355101785028</string>
 </resources>

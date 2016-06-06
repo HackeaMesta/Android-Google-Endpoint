@@ -90,6 +90,10 @@ public final class Utileria {
             throw new NullPointerException(VIEW_NULA);
         } else {
             final EditText editText = (EditText) busca(view, idEditText);
+            String txt = editText.getText().toString();
+            if (txt.isEmpty()) {
+                editText.setError("Introduce un valor");
+            }
             return editText.getText().toString();
         }
     }
@@ -126,11 +130,20 @@ public final class Utileria {
             throw new NullPointerException(VIEW_NULA);
         } else {
             final TextView lblSalida = (TextView) busca(view, idTextView);
-            if (s.length() > 15) {
+            if (s.length() > 20) {
                 if (s.substring(0, 7).equals("http://")) {
-                    lblSalida.setText(Html.fromHtml("<a href='"+texto(s)+"'>"+texto(s.substring(7, s.length()))+"</a>"));
+                    if (s.length() > 27) {
+                        lblSalida.setText(Html.fromHtml("<a href='"+texto(s)+"'>"+texto(s.substring(7, 27) + "...")+"</a>"));
+                    } else {
+                        lblSalida.setText(Html.fromHtml("<a href='"+texto(s)+"'>"+texto(s.substring(7, s.length()) + "...")+"</a>"));
+                    }
+
                 } else {
-                    lblSalida.setText(Html.fromHtml("<a href='"+texto(s)+"'>"+texto(s.substring(8, s.length()))+"</a>"));
+                    if (s.length() > 28) {
+                        lblSalida.setText(Html.fromHtml("<a href='"+texto(s)+"'>"+texto(s.substring(7, 28) + "...")+"</a>"));
+                    } else {
+                        lblSalida.setText(Html.fromHtml("<a href='"+texto(s)+"'>"+texto(s.substring(7, s.length()) + "...")+"</a>"));
+                    }
                 }
             } else {
                 lblSalida.setText(Html.fromHtml("<a href='" + texto(s) + "'>" + texto(s) + "</a>"));

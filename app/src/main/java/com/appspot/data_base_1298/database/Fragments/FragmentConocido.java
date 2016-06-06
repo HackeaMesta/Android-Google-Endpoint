@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.appspot.data_base_1298.database.R;
 import com.appspot.data_base_1298.database.Tools.App;
@@ -270,6 +271,7 @@ public class FragmentConocido extends Fragment
     }
 
     private void clicEnEliminar() {
+        Toast.makeText(ctx, "Se ha eliminado correctamente", Toast.LENGTH_LONG).show();
         setIndicadorActivo(indicador, true);
         final App app = getApp(getActivity());
         AsyncTask<String, Void, Exception> taskRemove =
